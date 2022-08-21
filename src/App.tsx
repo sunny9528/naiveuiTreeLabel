@@ -1,7 +1,6 @@
 import { defineComponent, VNodeChild } from 'vue';
 import styled from './app.module.less';
-import { TreeOption, NEllipsis } from 'naive-ui';
-import {NTree} from '../../src/tree'
+import { TreeOption, NEllipsis, NTree } from 'naive-ui';
 
 interface IRenderLabelParams {
   option: TreeOption;
@@ -59,11 +58,11 @@ export default defineComponent({
     ];
     const renderLabel = (info: IRenderLabelParams): VNodeChild => {
       return (
-				<NEllipsis
-					style={{width: '100%'}}
+        <NEllipsis
+          style={{ width: '100%', textAlign: 'left' }}
           v-slots={{
             tooltip: () => info.option.label,
-            default: () => <span style={{ textAlign: 'center' }}>{info.option.label}</span>,
+            default: () => <span>{info.option.label}</span>,
           }}
         />
       );
